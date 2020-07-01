@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <import type="com.example.viewpagerdatabindingdemo.ViewAdapter"/>
+
+        <import type="com.example.viewpagerdatabindingdemo.ViewModel"/>
+        <variable
+            name="adapter"
+            type="ViewAdapter" />
+        <variable
+            name="viewModel"
+            type="ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/name"
+            android:text="@{viewModel.name}"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/container"
+            app:layout_constraintBottom_toTopOf="@id/nav_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:adapter="@{adapter}"
+            android:currentPage="@={viewModel.currentPage}"
+            android:offscreenPageLimit="@{viewModel.offscreenPageLimit}"
+            android:onPageSelected="@{currentPage -> viewModel.pageSelected(currentPage)}">
+
+        </androidx.viewpager.widget.ViewPager>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/bottom_nav_menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="?android:attr/windowBackground" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

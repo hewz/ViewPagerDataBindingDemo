@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ViewPagerDataBindingDemo</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <item name="page_change_listener" type="id"/>
+</resources>

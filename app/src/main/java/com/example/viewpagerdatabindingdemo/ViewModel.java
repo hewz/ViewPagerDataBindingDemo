@@ -8,11 +8,11 @@ public class ViewModel {
     private int currentPage = 0;
     private int offscreenPageLimit = 0;
 
-    private ObservableField<String> name;
+    private ObservableField<String> text;
 
     public ViewModel(){
-        this.name = new ObservableField<>();
-        this.name.set("VM");
+        this.text = new ObservableField<>();
+        this.text.set("You're at page ");
     }
 
     public int getCurrentPage() {
@@ -33,10 +33,10 @@ public class ViewModel {
 
     public void pageSelected(int currentPage) {
         Log.e("EEE", "pageSelected:" + currentPage);
-        this.name.set("VM" + currentPage);
+        this.text.set("You're at page " + currentPage);
     }
 
-    public String getName(){
-        return name.get();
+    public ObservableField<String> getText(){
+        return text;
     }
 }

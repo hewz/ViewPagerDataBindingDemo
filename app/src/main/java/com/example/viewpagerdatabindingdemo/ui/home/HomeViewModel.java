@@ -19,7 +19,7 @@ public class HomeViewModel{
         mText.set(old + ++count);
     }
 
-    public String getText() {
-        return mText.get();
+    public ObservableField<String> getText() {
+        return mText;
     }
 }

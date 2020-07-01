@@ -26,7 +26,7 @@
             android:layout_marginEnd="8dp"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:text="@{vm.text}"
+            android:text="@{vm.getText}"
             android:onClick="@{()->vm.changeText(vm.text)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
